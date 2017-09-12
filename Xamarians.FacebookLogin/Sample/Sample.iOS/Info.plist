@@ -26,6 +26,8 @@
 	<string>Sample</string>
 	<key>CFBundleIdentifier</key>
 	<string>com.successive.adhoc.Sample</string>
+  <key>NSCameraUsageDescription</key>
+  <string>This app needs access to the camera to take photos.</string>
 	<key>CFBundleVersion</key>
 	<string>1.0</string>
 	<key>FacebookAppID</key>

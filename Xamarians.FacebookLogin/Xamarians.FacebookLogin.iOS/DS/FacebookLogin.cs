@@ -6,6 +6,7 @@ using UIKit;
 using Xamarians.FacebookLogin.Platforms;
 using Xamarin.Forms;
 using Xamarians.FacebookLogin.iOS.DS;
+using System;
 
 [assembly: Dependency(typeof(Xamarians.FacebookLogin.iOS.DS.FacebookLogin))]
 namespace Xamarians.FacebookLogin.iOS.DS
@@ -19,8 +20,11 @@ namespace Xamarians.FacebookLogin.iOS.DS
 
 		private UIViewController GetController()
 		{
-			return UIApplication.SharedApplication.KeyWindow.RootViewController;
-		}
+            var vc = UIApplication.SharedApplication.KeyWindow.RootViewController;
+            while (vc.PresentedViewController != null)
+                vc = vc.PresentedViewController;
+            return vc;
+        }
 
 		LoginManager manager;
 		public async Task<FbLoginResult> SignIn()
@@ -82,5 +86,30 @@ namespace Xamarians.FacebookLogin.iOS.DS
 			}
 			return tcs.Task;
 		}
-	}
+
+        public void ShareLinkOnFacebook(string text, string description, string link)
+        {
+            var item = NSObject.FromObject(link);
+            var activityItems = new[] { item };
+            var activityController = new UIActivityViewController(activityItems, null);
+            GetController().PresentViewController(activityController, true, () => { });
+        }
+
+        public void ShareTextOnFacebook(string text)
+        {
+            var item = NSObject.FromObject(text);
+            var activityItems = new[] { item };
+            var activityController = new UIActivityViewController(activityItems, null);
+            GetController().PresentViewController(activityController, true, () => { });
+        }
+
+        public void ShareImageOnFacebook(string caption, string imagePath)
+        {
+            var img = UIImage.LoadFromData(NSData.FromFile(imagePath));
+            var item = NSObject.FromObject(img);
+            var activityItems = new[] { item };
+            var activityController = new UIActivityViewController(activityItems, null);
+            GetController().PresentViewController(activityController, true, () => { });
+        }
+    }
 }

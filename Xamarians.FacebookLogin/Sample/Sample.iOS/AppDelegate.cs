@@ -21,7 +21,8 @@ namespace Sample.iOS
 		{
 			global::Xamarin.Forms.Forms.Init();
             Xamarians.FacebookLogin.iOS.DS.FacebookLogin.Init();
-			LoadApplication (new Sample.App ());
+            Xamarians.Media.iOS.MediaServiceIOS.Initialize();
+            LoadApplication (new Sample.App ());
 			return base.FinishedLaunching (app, options);
 		}
 
