@@ -20,6 +20,7 @@ namespace Sample.Droid
 			base.OnCreate (bundle);
 
 			global::Xamarin.Forms.Forms.Init (this, bundle);
+            Xamarians.Media.Droid.MediaServiceAndroid.Initialize();
             Xamarians.FacebookLogin.Droid.DS.FacebookLogin.Init("251355195259334");
 
 			LoadApplication (new Sample.App ());

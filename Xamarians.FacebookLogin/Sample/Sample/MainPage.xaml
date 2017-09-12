@@ -4,7 +4,10 @@
              xmlns:local="clr-namespace:Sample"
              x:Class="Sample.MainPage">
     <StackLayout VerticalOptions="Center" Padding="10">
-    <Button Text="Sign In" BackgroundColor="Aqua" Clicked="Button_Clicked"></Button>
-    <Button Text="Sign Out" BackgroundColor="Aqua" Clicked="Button_Clicked_1"></Button>
+        <Button Text="Sign In" BackgroundColor="Aqua" Clicked="FbSignInClicked"></Button>
+        <Button Text="Sign Out" BackgroundColor="Aqua" Clicked="FbSignOutClicked"></Button>
+        <Button Text="Share Image on Facebook" BackgroundColor="Aqua" Clicked="FbImageShareClicked"></Button>
+        <Button Text="Share Text on Facebook" BackgroundColor="Aqua" Clicked="FbTextShareClicked"></Button>
+        <Button Text="Share Link on Facebook" BackgroundColor="Aqua" Clicked="FbLinkShareClicked"></Button>
     </StackLayout>
 </ContentPage>

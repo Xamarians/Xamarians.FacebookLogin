@@ -11,5 +11,8 @@ namespace Xamarians.FacebookLogin
     {
         Task<FbLoginResult> SignIn();
         Task<FbLoginResult> SignOut();
+        void ShareLinkOnFacebook(string text, string description, string link);
+        void ShareTextOnFacebook(string text);
+        void ShareImageOnFacebook(string caption, string imagePath);
     }
 }

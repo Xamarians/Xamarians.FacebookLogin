@@ -17,4 +17,16 @@
         Error = 0, Success = 1, Cancelled = 2
     }
 
+    public class FBShareResult
+    {
+        public ShareStatus Status { get; set; }
+        public string Message { get; set; }
+    }
+
+
+    public enum ShareStatus
+    {
+        Error, Cancelled, Success
+    }
+
 }

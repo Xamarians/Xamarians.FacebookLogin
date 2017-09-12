@@ -4,6 +4,7 @@ using Xamarians.FacebookLogin.Platforms;
 using Xamarians.FacebookLogin.Droid.Platforms;
 using Xamarin.Forms;
 using Xamarians.FacebookLogin.Droid.DS;
+using System;
 
 [assembly: Dependency(typeof(FacebookLogin))]
 namespace Xamarians.FacebookLogin.Droid.DS
@@ -14,7 +15,32 @@ namespace Xamarians.FacebookLogin.Droid.DS
         public static void Init(string facebookAppId)
         {
             FacebookAppId = facebookAppId;
-        } 
+        }
+
+        public void ShareImageOnFacebook(string caption, string imagePath)
+        {
+            var dbIntent = new Intent(Xamarin.Forms.Forms.Context, typeof(FacebookShareActivity));
+            dbIntent.PutExtra("Title", caption);
+            dbIntent.PutExtra("ImagePath", imagePath);
+            Xamarin.Forms.Forms.Context.StartActivity(dbIntent);
+        }
+
+        public void ShareLinkOnFacebook(string title, string description, string link)
+        {
+            var dbIntent = new Intent(Xamarin.Forms.Forms.Context, typeof(FacebookShareActivity));
+            dbIntent.PutExtra("Title", title);
+            dbIntent.PutExtra("Description", description);
+            dbIntent.PutExtra("Link", link);
+            Xamarin.Forms.Forms.Context.StartActivity(dbIntent);
+        }
+
+        public void ShareTextOnFacebook(string text)
+        {
+            var dbIntent = new Intent(Xamarin.Forms.Forms.Context, typeof(FacebookShareActivity));
+            dbIntent.PutExtra("Title", "Joybird");
+            dbIntent.PutExtra("Description", text);
+            Xamarin.Forms.Forms.Context.StartActivity(dbIntent);
+        }
 
         public Task<FbLoginResult> SignIn()
         {

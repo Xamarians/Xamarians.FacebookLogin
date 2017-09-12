@@ -107,6 +107,7 @@
     <Compile Include="DS\FacebookLogin.cs" />
     <Compile Include="Platforms\FacebookCallback.cs" />
     <Compile Include="Platforms\FacebookLoginActivity.cs" />
+    <Compile Include="Platforms\FacebookShareActivity.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
